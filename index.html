@@ -4,703 +4,430 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Prenotazioni libri scolastici 2026/27</title>
-
   <style>
     :root{
       --blu:#1f4e78;
-      --blu-2:#2d6aa3;
-      --arancio:#c65911;
-      --arancio-2:#e27a2b;
-      --verde:#128C7E;
-      --verde-2:#16a085;
+      --blu2:#2f6f9f;
+      --arancio:#d96710;
+      --verde:#11856f;
       --rosso:#b91c1c;
-      --sfondo:#eef3f9;
-      --bordo:#d8e3ef;
-      --testo:#1f2937;
-      --muted:#64748b;
-      --ombra:0 10px 30px rgba(31,78,120,.10);
-      --ombra-soft:0 4px 14px rgba(15,23,42,.08);
+      --bg:#edf4fb;
+      --line:#d5e2ee;
+      --text:#102033;
+      --muted:#5e7188;
+      --shadow:0 12px 30px rgba(31,78,120,.14);
       --radius:16px;
     }
-
     *{box-sizing:border-box}
-
-    html{scroll-behavior:smooth}
-
     body{
       margin:0;
       font-family:Arial, Helvetica, sans-serif;
-      color:var(--testo);
-      background:
-        radial-gradient(circle at top left, rgba(45,106,163,.10), transparent 28%),
-        radial-gradient(circle at top right, rgba(198,89,17,.08), transparent 22%),
-        linear-gradient(180deg, #f7fbff 0%, var(--sfondo) 42%, #edf3f8 100%);
+      color:var(--text);
+      background:linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);
     }
-
     header{
-      color:#fff;
-      padding:34px 22px 20px;
-      background:linear-gradient(135deg, rgba(18,61,102,.96), rgba(31,78,120,.95) 50%, rgba(45,106,163,.92));
-      box-shadow:0 8px 24px rgba(31,78,120,.22);
+      background:linear-gradient(135deg,#204f78,#3975a8);
+      color:white;
+      padding:28px 16px 24px;
+      box-shadow:0 8px 24px rgba(31,78,120,.23);
     }
-
-    .header-inner{
-      max-width:980px;
-      margin:0 auto;
-    }
-
-    header h1{
-      margin:0;
-      font-size:31px;
-      letter-spacing:.2px;
-    }
-
-    header hr{
-      border:0;
-      border-top:1px solid rgba(255,255,255,.55);
-      margin:10px 0 18px;
-    }
-
-    header p{
-      margin:0 0 18px;
-      opacity:.95;
-      font-size:14px;
-    }
-
-    main{
-      max-width:980px;
-      margin:20px auto;
-      padding:0 14px 40px;
-    }
-
-    .card{
-      position:relative;
-      background:rgba(255,255,255,.97);
-      border:1px solid var(--bordo);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:var(--ombra);
-      margin-bottom:18px;
-      overflow:hidden;
-    }
-
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0 0 auto 0;
-      height:4px;
-      background:linear-gradient(90deg, var(--blu), var(--arancio));
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:14px;
-    }
-
-    .grid-2{
-      display:grid;
-      grid-template-columns:1fr 1.15fr;
-      gap:14px;
-      align-items:end;
-    }
-
-    .search-row{
-      display:grid;
-      grid-template-columns:1fr auto 1.2fr;
-      gap:14px;
-      align-items:end;
-    }
-
-    .full{grid-column:1/-1}
-
-    label{
-      display:block;
-      font-weight:800;
-      font-size:12px;
-      margin-bottom:6px;
-      color:#0f2f4f;
-      text-transform:uppercase;
-      letter-spacing:.45px;
-    }
-
-    input, select, textarea{
-      width:100%;
-      padding:11px 12px;
-      border:1px solid #c9d7e6;
-      border-radius:12px;
-      font-size:15px;
-      background:#fff;
-      color:var(--testo);
-      outline:none;
-      transition:border-color .18s ease, box-shadow .18s ease;
-      box-shadow:inset 0 1px 2px rgba(15,23,42,.03);
-    }
-
-    input:focus, select:focus, textarea:focus{
-      border-color:var(--blu-2);
-      box-shadow:0 0 0 4px rgba(45,106,163,.14);
-    }
-
-    input[readonly]{
-      background:#f4f7fb;
-      color:#475569;
-    }
-
-    textarea{
-      min-height:84px;
-      resize:vertical;
-      line-height:1.35;
-    }
-
-    .section-title{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:18px;
-      font-weight:900;
-      color:#064577;
-      margin:2px 0 18px;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      padding:6px 11px;
-      border-radius:999px;
-      background:linear-gradient(180deg, #edf6ff, #e4f0fb);
-      color:var(--blu);
-      border:1px solid #c9dff3;
-      font-weight:800;
-      font-size:12px;
-    }
-
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:14px;
-    }
-
+    .wrap{max-width:1080px;margin:0 auto}
+    h1{margin:0 0 10px;font-size:30px}
+    header p{margin:0 0 18px;opacity:.95}
+    header hr{border:0;border-top:1px solid rgba(255,255,255,.55);margin:0 0 18px}
+    main{max-width:1080px;margin:22px auto;padding:0 14px 44px}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap}
     button{
       border:0;
       border-radius:12px;
+      background:linear-gradient(180deg,var(--blu2),var(--blu));
+      color:white;
       padding:11px 15px;
-      font-weight:900;
+      font-weight:800;
       cursor:pointer;
-      font-size:14px;
-      background:linear-gradient(180deg, var(--blu-2), var(--blu));
-      color:#fff;
-      box-shadow:var(--ombra-soft);
-      transition:transform .12s ease, box-shadow .18s ease, filter .18s ease;
+      box-shadow:0 6px 16px rgba(31,78,120,.16);
     }
-
-    button:hover{
-      transform:translateY(-1px);
-      filter:saturate(1.03);
-      box-shadow:0 10px 20px rgba(31,78,120,.18);
+    button:hover{filter:saturate(1.1)}
+    button.secondary{background:linear-gradient(180deg,#7b8a9c,#64748b)}
+    button.orange{background:linear-gradient(180deg,#ec8439,var(--arancio))}
+    button.green{background:linear-gradient(180deg,#18a58c,var(--verde))}
+    button.danger{background:linear-gradient(180deg,#dc2626,var(--rosso))}
+    .tabs button{border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.16);box-shadow:none}
+    .tabs button.active{background:white;color:#0d4777}
+    .card{
+      position:relative;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin-bottom:18px;
+      overflow:hidden;
     }
-
-    button:active{transform:translateY(0)}
-
-    button.secondary{background:linear-gradient(180deg, #7b8a9c, #64748b)}
-    button.orange{background:linear-gradient(180deg, var(--arancio-2), var(--arancio))}
-    button.green{background:linear-gradient(180deg, var(--verde-2), var(--verde))}
-    button.danger{background:linear-gradient(180deg, #dc2626, var(--rosso))}
-
-    .small{
+    .card:before{
+      content:"";
+      position:absolute;
+      left:0;right:0;top:0;height:4px;
+      background:linear-gradient(90deg,var(--blu),var(--arancio));
+    }
+    .title{
+      font-size:20px;
+      font-weight:900;
+      color:#064577;
+      margin:4px 0 18px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .badge{
+      display:inline-flex;
+      border:1px solid #bcd6ee;
+      background:#e9f4ff;
+      color:#064577;
+      border-radius:999px;
+      padding:6px 10px;
       font-size:12px;
-      color:#375a7e;
-      margin-top:7px;
+      font-weight:800;
     }
-
-    .okmsg, .errmsg{
-      padding:13px 12px;
+    label{
+      display:block;
+      font-weight:900;
+      color:#0c3150;
+      text-transform:uppercase;
+      font-size:12px;
+      letter-spacing:.35px;
+      margin-bottom:6px;
+    }
+    input,select,textarea{
+      width:100%;
+      border:1px solid #c7d7e8;
+      border-radius:12px;
+      padding:11px 12px;
+      font-size:15px;
+      background:white;
+      color:var(--text);
+      outline:none;
+    }
+    input:focus,select:focus,textarea:focus{border-color:var(--blu2);box-shadow:0 0 0 4px rgba(47,111,159,.14)}
+    input[readonly]{background:#f4f7fb;color:#52657a}
+    textarea{min-height:88px;resize:vertical}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .searchrow{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:end}
+    .full{grid-column:1/-1}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .small{font-size:12px;color:#375a7e;margin-top:7px}
+    .hidden{display:none!important}
+    .ok,.err{
+      padding:12px;
       border-radius:12px;
       font-weight:800;
       margin-top:12px;
     }
-
-    .okmsg{
-      background:#ecfdf3;
-      border:1px solid #a7f3d0;
-      color:#166534;
-    }
-
-    .errmsg{
-      background:#fff1f2;
-      border:1px solid #fecdd3;
-      color:#9f1239;
-    }
-
-    table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0;
-      font-size:13px;
-    }
-
-    th, td{
-      padding:10px 9px;
-      border:1px solid #e1e8f0;
-      text-align:left;
-      vertical-align:top;
-    }
-
-    th{
-      background:linear-gradient(180deg, #f2f7fc, #e8f0f8);
-      color:#064577;
-      font-weight:900;
-    }
-
+    .ok{background:#ecfdf3;border:1px solid #a7f3d0;color:#166534}
+    .err{background:#fff1f2;border:1px solid #fecdd3;color:#9f1239}
+    table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}
+    th,td{border:1px solid #e0e8f0;padding:10px;text-align:left;vertical-align:top}
+    th{background:#edf4fb;color:#064577;font-weight:900}
     tbody tr:nth-child(even){background:#fbfdff}
-    tbody tr:hover{background:#f1f7fc}
-
-    .table-wrap{
-      max-height:360px;
-      overflow:auto;
-      border:1px solid #e2eaf2;
-      border-radius:14px;
-      background:#fff;
-      margin-top:12px;
-    }
-
+    tbody tr:hover{background:#f2f8fd}
+    .tablewrap{max-height:380px;overflow:auto;border:1px solid #e0e8f0;border-radius:14px;background:white;margin-top:12px}
     .required{color:var(--rosso)}
-    .result-row{cursor:pointer}
-    .hidden{display:none !important}
-
-    .tabs{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .tabs button{
-      border:1px solid rgba(255,255,255,.42);
-      background:rgba(255,255,255,.16);
-      box-shadow:none;
-      backdrop-filter:blur(4px);
-    }
-
-    .tabs button.active{
-      background:#fff;
-      color:var(--blu);
-      border-color:#fff;
-    }
-
-    .screen.hidden{display:none !important}
-
-    #areaStampaRicevuta{
-      background:white;
-      border-radius:var(--radius);
-    }
-
-    .ricevuta-box{
-      border:1px solid #d8e3ef;
-      border-radius:14px;
-      padding:18px;
-      background:#fff;
-      line-height:1.55;
-    }
-
-    .ricevuta-box h2{
-      margin-top:0;
-      color:var(--blu);
-    }
-
-    .riepilogo{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:12px;
-      margin-top:12px;
-    }
-
-    .riepilogo div{
-      border:1px solid #dbe7f3;
-      border-radius:12px;
-      padding:10px;
-      background:#f8fbff;
-    }
-
-    .riepilogo b{
-      display:block;
-      color:#475569;
-      font-size:12px;
-      text-transform:uppercase;
-      margin-bottom:4px;
-    }
-
-    .sep{
-      border:0;
-      border-top:1px dashed #cbd5e1;
-      margin:12px 0;
-    }
-
-    ::placeholder{color:#94a3b8}
-
-    @media (max-width:900px){
-      .grid{grid-template-columns:repeat(2, minmax(0,1fr))}
-      .grid-2,.search-row{grid-template-columns:1fr}
-      .riepilogo{grid-template-columns:1fr}
-    }
-
-    @media (max-width:620px){
-      header{padding:24px 14px 18px}
-      header h1{font-size:24px}
-      main{padding:0 10px 30px}
-      .card{padding:14px}
-      .grid,.grid-2,.search-row{grid-template-columns:1fr}
-      .actions{gap:8px}
-      button{width:100%}
-      .tabs button{width:auto}
-    }
-
+    #ricevutaBox{line-height:1.55}
+    .riepilogo{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .riepilogo div{border:1px solid #dbe7f3;border-radius:12px;padding:10px;background:#f8fbff}
+    .riepilogo b{display:block;color:#52657a;font-size:12px;text-transform:uppercase;margin-bottom:4px}
+    .parent-banner{background:#ecfdf3;border:1px solid #a7f3d0;color:#166534;border-radius:12px;padding:12px;margin-bottom:18px;font-weight:800}
+    @media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}.searchrow,.grid2{grid-template-columns:1fr}.riepilogo{grid-template-columns:1fr}}
+    @media(max-width:560px){h1{font-size:24px}.grid{grid-template-columns:1fr}button{width:100%}.tabs button{width:auto}}
     @media print{
       body *{visibility:hidden}
-      #areaStampaRicevuta, #areaStampaRicevuta *{visibility:visible}
-      #areaStampaRicevuta{
-        position:absolute;
-        left:0;
-        top:0;
-        width:100%;
-        box-shadow:none;
-        border:0;
-        padding:0;
-        background:white;
-      }
-      .no-print{display:none !important}
+      #printArea,#printArea *{visibility:visible}
+      #printArea{position:absolute;left:0;top:0;width:100%;box-shadow:none;border:0}
+      .no-print{display:none!important}
     }
   </style>
 </head>
 
 <body>
   <header class="no-print">
-    <div class="header-inner">
+    <div class="wrap">
       <h1>Prenotazioni libri scolastici 2026/27</h1>
       <hr>
-      <p>Unica pagina con prenotazione, ricerca, controllo non prenotati e stampa ricevuta.</p>
-
-      <div class="tabs">
-        <button id="tabPrenotazione" class="active" type="button" onclick="mostraSchermata('prenotazione')">Prenotazione</button>
-        <button id="tabRicevuta" type="button" onclick="mostraSchermata('ricevuta')">Ricerca prenotazioni</button>
+      <p id="subtitle">Prenotazione, ricerca, ricevuta e link WhatsApp per far compilare il genitore.</p>
+      <div id="tabs" class="tabs">
+        <button id="tabStaff" class="active" onclick="showScreen('staff')" type="button">Prenotazione</button>
+        <button id="tabSearch" onclick="showScreen('search')" type="button">Ricerca prenotazioni</button>
+        <button id="tabParentLink" onclick="showScreen('link')" type="button">Link genitore WhatsApp</button>
       </div>
     </div>
   </header>
 
   <main>
-    <section id="screenPrenotazione" class="screen">
-      <section class="card no-print">
-        <p class="section-title">1) Cerca prenotazione</p>
+    <div id="parentBanner" class="parent-banner hidden">
+      Modulo per il genitore: compila i dati e invia la prenotazione.
+    </div>
 
-        <div class="search-row">
+    <section id="screenStaff" class="screen">
+      <div class="card no-print">
+        <div class="title">1) Cerca nel vecchio archivio</div>
+        <div class="searchrow">
           <div>
             <label>Cerca alunno, genitore, codice fiscale o telefono</label>
-            <input id="searchBox" placeholder="Scrivi almeno una parola">
-            <div class="small">La ricerca legge il foglio Google Prenotazioni_2025_2026.</div>
+            <input id="searchBox" placeholder="Esempio: boni">
+            <div class="small">Legge il foglio Prenotazioni_2025_2026.</div>
           </div>
-
-          <div>
-            <button type="button" onclick="cercaArchivio()">Cerca</button>
-          </div>
-
+          <button onclick="cercaArchivio()" type="button">Cerca</button>
           <div>
             <label>Stato</label>
-            <input id="quickStatus" readonly value="Nuova anagrafica non presente">
+            <input id="quickStatus" readonly value="Pronto">
           </div>
         </div>
-
         <div class="actions">
-          <button type="button" class="orange" onclick="nuovaAnagrafica()">Nuova anagrafica non presente</button>
+          <button class="orange" onclick="nuovaAnagrafica()" type="button">Nuova anagrafica non presente</button>
         </div>
-
         <div id="msgRicerca" class="hidden"></div>
-        <div id="searchResults" class="table-wrap hidden"></div>
-      </section>
+        <div id="searchResults" class="tablewrap hidden"></div>
+      </div>
 
-      <section class="card no-print">
-        <p class="section-title">2) Dati anagrafici <span id="modeBadge" class="badge">da archivio scorso anno</span></p>
+      <div id="formCard" class="card">
+        <div class="title">2) Dati prenotazione <span id="modeBadge" class="badge">staff</span></div>
+        <form id="bookingForm" onsubmit="event.preventDefault(); salvaPrenotazione();">
+          <div class="grid">
+            <div>
+              <label>ID alunno</label>
+              <input id="ID_ALUNNO">
+            </div>
+            <div>
+              <label>Cognome alunno <span class="required">*</span></label>
+              <input id="COGNOME_ALUNNO" required>
+            </div>
+            <div>
+              <label>Nome alunno <span class="required">*</span></label>
+              <input id="NOME_ALUNNO" required>
+            </div>
+            <div>
+              <label>Codice fiscale alunno <span class="required">*</span></label>
+              <input id="CODICE_FISCALE_ALUNNO" required>
+            </div>
 
-        <div class="grid">
-          <div>
-            <label>ID alunno</label>
-            <input id="ID_ALUNNO" readonly>
-          </div>
-          <div>
-            <label>Cognome alunno</label>
-            <input id="COGNOME_ALUNNO" readonly>
-          </div>
-          <div>
-            <label>Nome alunno</label>
-            <input id="NOME_ALUNNO" readonly>
-          </div>
-          <div>
-            <label>Codice fiscale alunno <span class="required">*</span></label>
-            <input id="CODICE_FISCALE_ALUNNO" readonly>
-          </div>
+            <div>
+              <label>Classe vecchia</label>
+              <input id="CLASSE_VECCHIA">
+            </div>
+            <div>
+              <label>Sezione vecchia</label>
+              <input id="SEZIONE_VECCHIA">
+            </div>
+            <div>
+              <label>Istituto</label>
+              <input id="ISTITUTO_NOME">
+            </div>
+            <div>
+              <label>Città istituto</label>
+              <input id="ISTITUTO_CITTA">
+            </div>
 
-          <div>
-            <label>Classe vecchia</label>
-            <input id="CLASSE_VECCHIA" readonly>
-          </div>
-          <div>
-            <label>Sezione vecchia</label>
-            <input id="SEZIONE_VECCHIA" readonly>
-          </div>
-          <div>
-            <label>Istituto</label>
-            <input id="ISTITUTO_NOME" list="istitutiList">
-            <datalist id="istitutiList"></datalist>
-          </div>
-          <div>
-            <label>Città istituto</label>
-            <select id="ISTITUTO_CITTA"></select>
-          </div>
+            <div>
+              <label>Comune residenza</label>
+              <input id="COMUNE_RESIDENZA">
+            </div>
+            <div>
+              <label>Comune fuori provincia</label>
+              <input id="COMUNE_FUORI_PROVINCIA">
+            </div>
+            <div>
+              <label>Cognome genitore <span class="required">*</span></label>
+              <input id="COGNOME_GENITORE" required>
+            </div>
+            <div>
+              <label>Nome genitore <span class="required">*</span></label>
+              <input id="NOME_GENITORE" required>
+            </div>
 
-          <div>
-            <label>Comune residenza <span class="required">*</span></label>
-            <select id="COMUNE_RESIDENZA"></select>
-          </div>
-          <div>
-            <label>Comune fuori provincia</label>
-            <input id="COMUNE_FUORI_PROVINCIA" placeholder="Compila solo se fuori provincia">
-          </div>
-        </div>
-      </section>
+            <div>
+              <label>Cellulare genitore <span class="required">*</span></label>
+              <input id="CELLULARE_GENITORE" required>
+            </div>
+            <div>
+              <label>Codice fiscale genitore <span class="required">*</span></label>
+              <input id="COD_FISC_GENITORE" required>
+            </div>
+            <div>
+              <label>Nuova classe <span class="required">*</span></label>
+              <select id="NUOVA_CLASSE" required onchange="updateSezioni()">
+                <option></option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+              </select>
+            </div>
+            <div>
+              <label>Nuova sezione <span class="required">*</span></label>
+              <select id="NUOVA_SEZIONE" required></select>
+            </div>
 
-      <section class="card no-print">
-        <p class="section-title">3) Dati genitore</p>
+            <div>
+              <label>Religione <span class="required">*</span></label>
+              <select id="RELIGIONE" required>
+                <option></option><option>SI</option><option>NO</option>
+              </select>
+            </div>
+            <div>
+              <label>Foderati <span class="required">*</span></label>
+              <select id="FODERATI" required>
+                <option></option><option>SI</option><option>NO</option>
+              </select>
+            </div>
+            <div>
+              <label>Libro vacanze <span class="required">*</span></label>
+              <select id="LIBRO_VACANZE" required>
+                <option></option><option>SI</option><option>NO</option>
+              </select>
+            </div>
+            <div>
+              <label>Etichette</label>
+              <select id="ETICHETTE">
+                <option></option><option>SI</option><option>NO</option>
+              </select>
+            </div>
 
-        <div class="grid">
-          <div>
-            <label>Cognome genitore</label>
-            <input id="COGNOME_GENITORE">
-          </div>
-          <div>
-            <label>Nome genitore</label>
-            <input id="NOME_GENITORE">
-          </div>
-          <div>
-            <label>Cellulare / WhatsApp</label>
-            <input id="CELLULARE_GENITORE">
-          </div>
-          <div>
-            <label>Codice fiscale genitore <span class="required">*</span></label>
-            <input id="COD_FISC_GENITORE">
-          </div>
-        </div>
+            <div>
+              <label>Data prenotazione</label>
+              <input id="DATA_PRENOTAZIONE" type="date">
+            </div>
+            <div>
+              <label>WhatsApp notifica</label>
+              <select id="WHATSAPP_NOTIFICA">
+                <option>NO</option><option>SI</option>
+              </select>
+            </div>
+            <div>
+              <label>Stato</label>
+              <select id="STATO_PRENOTAZIONE">
+                <option>DA COMPLETARE</option>
+                <option>COMPLETATA</option>
+                <option>ANNULLATA</option>
+              </select>
+            </div>
+            <div>
+              <label>Compilato da</label>
+              <input id="COMPILATO_DA" readonly value="STAFF">
+            </div>
 
-        <div class="actions">
-          <button type="button" class="secondary" onclick="mostraFigliGenitore()">Mostra figli collegati</button>
-          <button type="button" class="secondary" onclick="aggiungiFiglioStessoGenitore()">Aggiungi altro figlio stesso genitore</button>
-        </div>
-
-        <div id="figliBox" class="table-wrap hidden"></div>
-      </section>
-
-      <section class="card no-print">
-        <p class="section-title">4) Dati nuovi da inserire <span class="required">*</span></p>
-
-        <div class="grid">
-          <div>
-            <label>Nuova classe <span class="required">*</span></label>
-            <select id="NUOVA_CLASSE" onchange="aggiornaSezioni()"></select>
-          </div>
-          <div>
-            <label>Nuova sezione <span class="required">*</span></label>
-            <select id="NUOVA_SEZIONE"></select>
-            <div class="small">Classe 1: Tempo corto/Tempo lungo. Altre classi: sezioni A-Z.</div>
-          </div>
-          <div>
-            <label>Religione <span class="required">*</span></label>
-            <select id="RELIGIONE">
-              <option></option>
-              <option>SI</option>
-              <option>NO</option>
-            </select>
-          </div>
-          <div>
-            <label>Foderati <span class="required">*</span></label>
-            <select id="FODERATI">
-              <option></option>
-              <option>SI</option>
-              <option>NO</option>
-            </select>
-          </div>
-
-          <div>
-            <label>Libro vacanze <span class="required">*</span></label>
-            <select id="LIBRO_VACANZE">
-              <option></option>
-              <option>SI</option>
-              <option>NO</option>
-            </select>
-          </div>
-          <div>
-            <label>Etichette</label>
-            <select id="ETICHETTE">
-              <option></option>
-              <option>SI</option>
-              <option>NO</option>
-            </select>
-          </div>
-          <div>
-            <label>Data prenotazione</label>
-            <input id="DATA_PRENOTAZIONE" type="date">
-          </div>
-          <div>
-            <label>Notifica WhatsApp</label>
-            <select id="WHATSAPP_NOTIFICA">
-              <option>NO</option>
-              <option>SI</option>
-            </select>
+            <div class="full">
+              <label>Note</label>
+              <textarea id="NOTE_NUOVO_ANNO"></textarea>
+            </div>
           </div>
 
-          <div>
-            <label>Stato</label>
-            <select id="STATO_PRENOTAZIONE">
-              <option>DA COMPLETARE</option>
-              <option>COMPLETATA</option>
-              <option>ANNULLATA</option>
-            </select>
+          <div class="actions">
+            <button type="submit">Salva prenotazione</button>
+            <button class="green" onclick="apriWhatsAppConferma()" type="button">WhatsApp conferma</button>
+            <button class="orange" onclick="stampaRicevutaCorrente()" type="button">Stampa ricevuta</button>
+            <button class="secondary" onclick="pulisciForm()" type="button">Pulisci</button>
           </div>
-
-          <div class="full">
-            <label>Note nuovo anno</label>
-            <textarea id="NOTE_NUOVO_ANNO" placeholder="Note su libri, cedola, esigenze particolari..."></textarea>
-          </div>
-        </div>
-
-        <div class="actions">
-          <button type="button" onclick="salvaPrenotazione()">Salva prenotazione</button>
-          <button type="button" class="green" onclick="apriWhatsApp()">Invia/apri WhatsApp</button>
-          <button type="button" class="orange" onclick="apriRicevutaDaPrenotazione()">Stampa ricevuta</button>
-          <button type="button" class="secondary" onclick="pulisciMaschera()">Pulisci maschera</button>
-        </div>
-
+        </form>
         <div id="msgSalva" class="hidden"></div>
-      </section>
-
-      <section class="card no-print">
-        <p class="section-title">Ultime prenotazioni salvate</p>
-        <button type="button" onclick="caricaUltime()">Aggiorna elenco</button>
-        <div id="tabellaSalvati" class="table-wrap">
-          <div style="padding:12px;">Premi “Aggiorna elenco”.</div>
-        </div>
-      </section>
+      </div>
     </section>
 
-    <section id="screenRicevuta" class="screen hidden">
-      <section class="card no-print">
-        <p class="section-title">Ricerca prenotazioni</p>
-
-        <div class="grid-2">
+    <section id="screenSearch" class="screen hidden">
+      <div class="card no-print">
+        <div class="title">Ricerca prenotazioni salvate</div>
+        <div class="searchrow">
           <div>
-            <label>Cerca alunno, genitore, codice fiscale, telefono o ID prenotazione</label>
-            <input id="searchReceipt" placeholder="Scrivi cosa cercare">
+            <label>Cerca prenotazione</label>
+            <input id="searchSaved" placeholder="Nome, cognome, CF, telefono, ID">
           </div>
+          <button onclick="cercaNuove()" type="button">Cerca</button>
           <div>
             <label>Stato</label>
-            <input id="statusReceipt" readonly>
+            <input id="savedStatus" readonly>
           </div>
         </div>
+        <div id="msgSaved" class="hidden"></div>
+        <div id="savedResults" class="tablewrap hidden"></div>
+      </div>
 
-        <div class="actions">
-          <button type="button" onclick="cercaRicevute()">Cerca</button>
+      <div id="printArea" class="card">
+        <div id="ricevutaBox">
+          <h2>Ricevuta prenotazione</h2>
+          <p>Seleziona una prenotazione salvata.</p>
         </div>
-
-        <div class="small">La ricerca prenotazioni legge il foglio nuovo PRENOTAZIONI_2026_27.</div>
-        <div id="msgRicevuta" class="hidden"></div>
-        <div id="receiptResults" class="table-wrap hidden"></div>
-      </section>
-
-      <section id="areaStampaRicevuta" class="card">
-        <div class="ricevuta-box">
-          <div id="ricevutaBody">
-            <h2>Ricevuta prenotazione libri scolastici 2026/27</h2>
-            <p>Cerca e seleziona una prenotazione salvata.</p>
-          </div>
-        </div>
-
         <div class="actions no-print">
-          <button type="button" onclick="window.print()">Stampa ricevuta</button>
-          <button type="button" class="secondary" onclick="mostraSchermata('prenotazione')">Torna alla prenotazione</button>
+          <button onclick="window.print()" type="button">Stampa</button>
         </div>
-      </section>
+      </div>
+    </section>
+
+    <section id="screenLink" class="screen hidden">
+      <div class="card no-print">
+        <div class="title">Link genitore via WhatsApp</div>
+        <div class="grid2">
+          <div>
+            <label>Telefono genitore</label>
+            <input id="waPhone" placeholder="Esempio: 3331234567">
+          </div>
+          <div>
+            <label>Link pubblico modulo genitore</label>
+            <input id="parentLink" readonly>
+          </div>
+        </div>
+        <div class="actions">
+          <button onclick="copyParentLink()" type="button">Copia link</button>
+          <button class="green" onclick="sendParentLinkWhatsApp()" type="button">Invia link via WhatsApp</button>
+        </div>
+        <div class="small">
+          Questo link apre direttamente il modulo che può compilare il genitore. Se scegli un alunno dalla ricerca, il link viene creato con ID alunno e precompila i dati.
+        </div>
+      </div>
     </section>
   </main>
 
   <script>
-    const API_URL = "https://script.google.com/macros/s/AKfycbyJsOR7OrCZj_WpK0Dd8AIFqMAor1LjFa2vDv8J-tBFlIkKb4U1Q_csK7y7JKgwXX80/exec";
+    /*
+      IMPORTANTE:
+      Dopo aver distribuito Apps Script come Web App, incolla qui il tuo URL /exec.
+      Esempio:
+      const API_URL = "https://script.google.com/macros/s/XXXXX/exec";
+    */
+    const API_URL = "https://script.google.com/macros/s/AKfycbycwuxTjwjbPw04y6DB5hp4Kn4a3jiqPq_Wh_nRoIrYawF2pKcPIiJAuHs38aFXAPao/exec";
 
-    const COMUNI_VT = [
-      "ACQUAPENDENTE","ARLENA DI CASTRO","BAGNOREGIO","BARBARANO ROMANO",
-      "BASSANO IN TEVERINA","BASSANO ROMANO","BLERA","BOLSENA","BOMARZO",
-      "CALCATA","CANEPINA","CANINO","CAPODIMONTE","CAPRANICA","CAPRAROLA",
-      "CARBOGNANO","CASTEL SANT'ELIA","CASTIGLIONE IN TEVERINA","CELLENO",
-      "CELLERE","CIVITA CASTELLANA","CIVITELLA D'AGLIANO","CORCHIANO",
-      "FABRICA DI ROMA","FALERIA","FARNESE","GALLESE","GRADOLI",
-      "GRAFFIGNANO","GROTTE DI CASTRO","ISCHIA DI CASTRO","LATERA",
-      "LUBRIANO","MARTA","MONTALTO DI CASTRO","MONTE ROMANO","MONTEFIASCONE",
-      "MONTEROSI","NEPI","ONANO","ORIOLO ROMANO","ORTE","PIANSANO",
-      "PROCENO","RONCIGLIONE","SAN LORENZO NUOVO","SORIANO NEL CIMINO",
-      "SUTRI","TARQUINIA","TESSENNANO","TUSCANIA","VALENTANO","VALLERANO",
-      "VASANELLO","VEJANO","VETRALLA","VIGNANELLO",
-      "VILLA SAN GIOVANNI IN TUSCIA","VITERBO","VITORCHIANO"
+    const FIELDS = [
+      "ID_ALUNNO","COGNOME_ALUNNO","NOME_ALUNNO","CODICE_FISCALE_ALUNNO",
+      "CLASSE_VECCHIA","SEZIONE_VECCHIA","ISTITUTO_NOME","ISTITUTO_CITTA",
+      "COMUNE_RESIDENZA","COMUNE_FUORI_PROVINCIA",
+      "COGNOME_GENITORE","NOME_GENITORE","CELLULARE_GENITORE","COD_FISC_GENITORE",
+      "NUOVA_CLASSE","NUOVA_SEZIONE","RELIGIONE","FODERATI","LIBRO_VACANZE",
+      "ETICHETTE","DATA_PRENOTAZIONE","WHATSAPP_NOTIFICA","STATO_PRENOTAZIONE",
+      "NOTE_NUOVO_ANNO","COMPILATO_DA"
     ];
 
-    const ISTITUTI_BASE = ["PIO FEDI"];
-
-    const CAMPI = [
-      "ID_ALUNNO",
-      "COGNOME_ALUNNO",
-      "NOME_ALUNNO",
-      "CODICE_FISCALE_ALUNNO",
-      "CLASSE_VECCHIA",
-      "SEZIONE_VECCHIA",
-      "ISTITUTO_NOME",
-      "ISTITUTO_CITTA",
-      "COMUNE_RESIDENZA",
-      "COMUNE_FUORI_PROVINCIA",
-      "COGNOME_GENITORE",
-      "NOME_GENITORE",
-      "CELLULARE_GENITORE",
-      "COD_FISC_GENITORE",
-      "NUOVA_CLASSE",
-      "NUOVA_SEZIONE",
-      "RELIGIONE",
-      "FODERATI",
-      "LIBRO_VACANZE",
-      "ETICHETTE",
-      "DATA_PRENOTAZIONE",
-      "WHATSAPP_NOTIFICA",
-      "STATO_PRENOTAZIONE",
-      "NOTE_NUOVO_ANNO"
-    ];
-
-    let ID_PRENOTAZIONE_CORRENTE = "";
     let risultatiArchivio = [];
-    let risultatiRicevuta = [];
+    let risultatiNuove = [];
+    let currentIdPrenotazione = "";
+    let currentRow = null;
 
     function api(action, params = {}) {
+      if (!API_URL || API_URL.includes("INCOLLA_QUI")) {
+        alert("Devi prima inserire l'URL della Web App Apps Script dentro index.html, variabile API_URL.");
+        return Promise.reject(new Error("API_URL mancante"));
+      }
+
       return new Promise((resolve, reject) => {
-        const callback = "cb_" + Date.now() + "_" + Math.floor(Math.random() * 100000);
+        const cb = "cb_" + Date.now() + "_" + Math.floor(Math.random() * 99999);
         const url = new URL(API_URL);
-
         url.searchParams.set("action", action);
-        url.searchParams.set("callback", callback);
-
-        Object.keys(params).forEach(k => {
-          url.searchParams.set(k, params[k]);
-        });
+        url.searchParams.set("callback", cb);
+        Object.keys(params).forEach(k => url.searchParams.set(k, params[k]));
 
         const script = document.createElement("script");
-
         const timeout = setTimeout(() => {
           cleanup();
-          reject(new Error("Timeout collegamento Google Script"));
-        }, 20000);
+          reject(new Error("Timeout collegamento Apps Script"));
+        }, 25000);
 
-        window[callback] = data => {
+        window[cb] = data => {
           clearTimeout(timeout);
           cleanup();
           resolve(data);
@@ -709,11 +436,11 @@
         script.onerror = () => {
           clearTimeout(timeout);
           cleanup();
-          reject(new Error("Errore collegamento Google Script"));
+          reject(new Error("Errore collegamento Apps Script"));
         };
 
         function cleanup() {
-          delete window[callback];
+          delete window[cb];
           if (script.parentNode) script.parentNode.removeChild(script);
         }
 
@@ -724,1159 +451,403 @@
 
     function esc(v) {
       return String(v ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
     }
 
-    function normalizzaChiave(k) {
-      return String(k || "")
-        .trim()
-        .toUpperCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/\s+/g, "_")
-        .replace(/[^\w]/g, "_")
-        .replace(/_+/g, "_")
-        .replace(/^_|_$/g, "");
-    }
-
-    function val(r, keys, tipo = "") {
-      if (!r) return "";
-
-      if (!Array.isArray(r) && typeof r === "object") {
-        const entries = Object.entries(r);
-
-        for (const k of keys) {
-          if (r[k] !== undefined && r[k] !== null && String(r[k]).trim() !== "") {
-            return String(r[k]).trim();
-          }
-        }
-
-        const normalized = {};
-        entries.forEach(([k, v]) => {
-          normalized[normalizzaChiave(k)] = v;
-        });
-
-        for (const k of keys) {
-          const nk = normalizzaChiave(k);
-          if (
-            normalized[nk] !== undefined &&
-            normalized[nk] !== null &&
-            String(normalized[nk]).trim() !== ""
-          ) {
-            return String(normalized[nk]).trim();
-          }
-        }
-
-        const campi = entries.map(([k, v]) => ({
-          key: normalizzaChiave(k),
-          rawKey: k,
-          value: v
-        }));
-
-        function primoValido(filtro) {
-          const trovato = campi.find(c =>
-            filtro(c.key) &&
-            c.value !== undefined &&
-            c.value !== null &&
-            String(c.value).trim() !== ""
-          );
-
-          return trovato ? String(trovato.value).trim() : "";
-        }
-
-        if (tipo === "idAlunno") {
-          return primoValido(k => k.includes("ID") && k.includes("ALUNNO"));
-        }
-
-        if (tipo === "cognomeAlunno") {
-          return primoValido(k =>
-            k.includes("COGNOME") &&
-            !k.includes("GENITORE") &&
-            !k.includes("MADRE") &&
-            !k.includes("PADRE") &&
-            !k.includes("TUTORE")
-          );
-        }
-
-        if (tipo === "nomeAlunno") {
-          return primoValido(k =>
-            k.includes("NOME") &&
-            !k.includes("COGNOME") &&
-            !k.includes("GENITORE") &&
-            !k.includes("MADRE") &&
-            !k.includes("PADRE") &&
-            !k.includes("TUTORE") &&
-            !k.includes("ISTITUTO") &&
-            !k.includes("SCUOLA")
-          );
-        }
-
-        if (tipo === "cognomeGenitore") {
-          return primoValido(k =>
-            k.includes("COGNOME") &&
-            (
-              k.includes("GENITORE") ||
-              k.includes("MADRE") ||
-              k.includes("PADRE") ||
-              k.includes("TUTORE")
-            )
-          );
-        }
-
-        if (tipo === "nomeGenitore") {
-          return primoValido(k =>
-            k.includes("NOME") &&
-            !k.includes("COGNOME") &&
-            (
-              k.includes("GENITORE") ||
-              k.includes("MADRE") ||
-              k.includes("PADRE") ||
-              k.includes("TUTORE")
-            )
-          );
-        }
-
-        if (tipo === "telefono") {
-          return primoValido(k =>
-            k.includes("CELL") ||
-            k.includes("TELEFONO") ||
-            k.includes("TEL") ||
-            k.includes("WHATSAPP") ||
-            k.includes("NUMERO")
-          );
-        }
-
-        if (tipo === "cfAlunno") {
-          return primoValido(k =>
-            (
-              k.includes("CODICE_FISCALE") ||
-              k === "CF" ||
-              k.includes("CF_ALUNNO") ||
-              k.includes("COD_FISC")
-            ) &&
-            !k.includes("GENITORE") &&
-            !k.includes("MADRE") &&
-            !k.includes("PADRE") &&
-            !k.includes("TUTORE")
-          );
-        }
-
-        if (tipo === "cfGenitore") {
-          return primoValido(k =>
-            (
-              k.includes("CODICE_FISCALE") ||
-              k.includes("CF") ||
-              k.includes("COD_FISC")
-            ) &&
-            (
-              k.includes("GENITORE") ||
-              k.includes("MADRE") ||
-              k.includes("PADRE") ||
-              k.includes("TUTORE")
-            )
-          );
-        }
-
-        if (tipo === "classeVecchia") {
-          return primoValido(k =>
-            k.includes("CLASSE") &&
-            !k.includes("NUOVA")
-          );
-        }
-
-        if (tipo === "sezioneVecchia") {
-          return primoValido(k =>
-            k.includes("SEZIONE") &&
-            !k.includes("NUOVA")
-          );
-        }
-
-        if (tipo === "istituto") {
-          return primoValido(k =>
-            k.includes("ISTITUTO") ||
-            k.includes("SCUOLA")
-          );
-        }
-
-        if (tipo === "comune") {
-          return primoValido(k =>
-            k.includes("COMUNE") ||
-            k.includes("RESIDENZA")
-          );
-        }
-
-        return "";
-      }
-
-      return "";
-    }
-
-    function getIdPrenotazione(r) {
-      return val(r, ["ID_PRENOTAZIONE", "ID", "ID PRENOTAZIONE", "ID_PREN"]);
-    }
-
-    function getDataPrenotazione(r) {
-      return val(r, ["DATA_PRENOTAZIONE", "DATA_ORA_SALVATAGGIO", "DATA", "DATA PRENOTAZIONE", "TIMESTAMP"]);
-    }
-
-    function getIdAlunno(r) {
-      return val(r, ["ID_ALUNNO", "ID ALUNNO", "ID"], "idAlunno");
-    }
-
-    function getCognomeAlunno(r) {
-      return val(r, [
-        "COGNOME_ALUNNO",
-        "COGNOME ALUNNO",
-        "COGNOME",
-        "COGNOME_STUDENTE",
-        "COGNOME STUDENTE",
-        "COGNOME_BAMBINO",
-        "COGNOME BAMBINO"
-      ], "cognomeAlunno");
-    }
-
-    function getNomeAlunno(r) {
-      return val(r, [
-        "NOME_ALUNNO",
-        "NOME ALUNNO",
-        "NOME",
-        "NOME_STUDENTE",
-        "NOME STUDENTE",
-        "NOME_BAMBINO",
-        "NOME BAMBINO"
-      ], "nomeAlunno");
-    }
-
-    function getAlunno(r) {
-      const nomeCompleto = val(r, [
-        "ALUNNO",
-        "NOME_COMPLETO_ALUNNO",
-        "NOME COMPLETO ALUNNO",
-        "COGNOME_NOME_ALUNNO",
-        "COGNOME NOME ALUNNO"
-      ]);
-
-      if (nomeCompleto) return nomeCompleto;
-
-      return (getCognomeAlunno(r) + " " + getNomeAlunno(r)).trim();
-    }
-
-    function getCognomeGenitore(r) {
-      return val(r, [
-        "COGNOME_GENITORE",
-        "COGNOME GENITORE",
-        "COGNOME_PADRE",
-        "COGNOME PADRE",
-        "COGNOME_MADRE",
-        "COGNOME MADRE",
-        "COGNOME_TUTORE",
-        "COGNOME TUTORE"
-      ], "cognomeGenitore");
-    }
-
-    function getNomeGenitore(r) {
-      return val(r, [
-        "NOME_GENITORE",
-        "NOME GENITORE",
-        "NOME_PADRE",
-        "NOME PADRE",
-        "NOME_MADRE",
-        "NOME MADRE",
-        "NOME_TUTORE",
-        "NOME TUTORE"
-      ], "nomeGenitore");
-    }
-
-    function getGenitore(r) {
-      const nomeCompleto = val(r, [
-        "GENITORE",
-        "NOME_COMPLETO_GENITORE",
-        "NOME COMPLETO GENITORE",
-        "PADRE_MADRE",
-        "PADRE MADRE",
-        "TUTORE"
-      ]);
-
-      if (nomeCompleto) return nomeCompleto;
-
-      return (getCognomeGenitore(r) + " " + getNomeGenitore(r)).trim();
-    }
-
-    function getTelefono(r) {
-      return val(r, [
-        "CELLULARE_GENITORE",
-        "CELLULARE GENITORE",
-        "CELLULARE",
-        "TELEFONO",
-        "TEL",
-        "WHATSAPP",
-        "NUMERO"
-      ], "telefono");
-    }
-
-    function getCfAlunno(r) {
-      return val(r, [
-        "CODICE_FISCALE_ALUNNO",
-        "CODICE FISCALE ALUNNO",
-        "CF_ALUNNO",
-        "CF ALUNNO",
-        "COD_FISC_ALUNNO",
-        "COD FISC ALUNNO",
-        "CODICE_FISCALE",
-        "CODICE FISCALE"
-      ], "cfAlunno");
-    }
-
-    function getCfGenitore(r) {
-      return val(r, [
-        "COD_FISC_GENITORE",
-        "COD FISC GENITORE",
-        "CODICE_FISCALE_GENITORE",
-        "CODICE FISCALE GENITORE",
-        "CF_GENITORE",
-        "CF GENITORE",
-        "CF_PADRE",
-        "CF MADRE",
-        "CODICE FISCALE PADRE",
-        "CODICE FISCALE MADRE"
-      ], "cfGenitore");
-    }
-
-    function getClasseVecchia(r) {
-      return val(r, [
-        "CLASSE_VECCHIA",
-        "CLASSE VECCHIA",
-        "CLASSE",
-        "CLASSE_ATTUALE",
-        "CLASSE ATTUALE"
-      ], "classeVecchia");
-    }
-
-    function getSezioneVecchia(r) {
-      return val(r, [
-        "SEZIONE_VECCHIA",
-        "SEZIONE VECCHIA",
-        "SEZIONE",
-        "SEZIONE_ATTUALE",
-        "SEZIONE ATTUALE"
-      ], "sezioneVecchia");
-    }
-
-    function getIstituto(r) {
-      return val(r, [
-        "ISTITUTO_NOME",
-        "ISTITUTO NOME",
-        "ISTITUTO",
-        "SCUOLA",
-        "SCUOLA_NOME",
-        "SCUOLA NOME"
-      ], "istituto");
-    }
-
-    function getClasse(r) {
-      const classe = val(r, ["NUOVA_CLASSE", "CLASSE_NUOVA", "CLASSE NUOVA", "CLASSE"]);
-      const sezione = val(r, ["NUOVA_SEZIONE", "SEZIONE_NUOVA", "SEZIONE NUOVA", "SEZIONE"]);
-      return (classe + " " + sezione).trim();
-    }
-
-    function setMsg(id, testo, tipo = "ok") {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.className = tipo === "err" ? "errmsg" : "okmsg";
-      el.textContent = testo;
-      el.classList.remove("hidden");
-    }
-
-    function hideMsg(id) {
-      const el = document.getElementById(id);
-      if (el) el.classList.add("hidden");
-    }
-
-    function fillSelect(id, values, blank = true) {
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      el.innerHTML = "";
-
-      if (blank) {
-        const o = document.createElement("option");
-        o.value = "";
-        o.textContent = "";
-        el.appendChild(o);
-      }
-
-      values.forEach(v => {
-        const o = document.createElement("option");
-        o.value = v;
-        o.textContent = v;
-        el.appendChild(o);
-      });
-    }
-
-    function setField(id, value) {
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      const v = value == null ? "" : String(value);
-
-      if (el.tagName === "SELECT" && v) {
-        const exists = Array.from(el.options).some(o => o.value === v || o.textContent === v);
+    function el(id){ return document.getElementById(id); }
+    function get(id){ return el(id) ? String(el(id).value || "").trim() : ""; }
+    function set(id,val){
+      const x = el(id);
+      if (!x) return;
+      const v = val == null ? "" : String(val);
+      if (x.tagName === "SELECT" && v) {
+        const exists = Array.from(x.options).some(o => o.value === v || o.textContent === v);
         if (!exists) {
-          const opt = document.createElement("option");
-          opt.value = v;
-          opt.textContent = v;
-          el.appendChild(opt);
+          const o = document.createElement("option");
+          o.value = v; o.textContent = v;
+          x.appendChild(o);
         }
       }
-
-      el.value = v;
+      x.value = v;
     }
 
-    function getField(id) {
-      const el = document.getElementById(id);
-      return el ? String(el.value || "").trim() : "";
+    function msg(id, text, type="ok") {
+      const box = el(id);
+      box.className = type === "err" ? "err" : "ok";
+      box.textContent = text;
+      box.classList.remove("hidden");
     }
 
-    function today() {
-      return new Date().toISOString().slice(0, 10);
-    }
+    function hide(id){ el(id).classList.add("hidden"); }
 
-    function mostraSchermata(nome) {
-      document.getElementById("screenPrenotazione").classList.toggle("hidden", nome !== "prenotazione");
-      document.getElementById("screenRicevuta").classList.toggle("hidden", nome !== "ricevuta");
-      document.getElementById("tabPrenotazione").classList.toggle("active", nome === "prenotazione");
-      document.getElementById("tabRicevuta").classList.toggle("active", nome === "ricevuta");
-      window.scrollTo(0, 0);
+    function showScreen(name) {
+      ["Staff","Search","Link"].forEach(n => el("screen"+n).classList.add("hidden"));
+      ["tabStaff","tabSearch","tabParentLink"].forEach(id => el(id).classList.remove("active"));
+
+      if (name === "staff") {
+        el("screenStaff").classList.remove("hidden");
+        el("tabStaff").classList.add("active");
+      } else if (name === "search") {
+        el("screenSearch").classList.remove("hidden");
+        el("tabSearch").classList.add("active");
+      } else {
+        el("screenLink").classList.remove("hidden");
+        el("tabParentLink").classList.add("active");
+        updateParentLink();
+      }
     }
 
     function init() {
-      fillSelect("ISTITUTO_CITTA", COMUNI_VT);
-      fillSelect("COMUNE_RESIDENZA", COMUNI_VT);
-      fillSelect("NUOVA_CLASSE", ["1", "2", "3", "4", "5"]);
-      aggiornaSezioni();
+      set("DATA_PRENOTAZIONE", new Date().toISOString().slice(0,10));
+      set("WHATSAPP_NOTIFICA", "NO");
+      set("STATO_PRENOTAZIONE", "DA COMPLETARE");
+      updateSezioni();
+      updateParentLink();
 
-      const dl = document.getElementById("istitutiList");
-      ISTITUTI_BASE.forEach(i => {
-        const o = document.createElement("option");
-        o.value = i;
-        dl.appendChild(o);
-      });
+      el("searchBox").addEventListener("keydown", e => { if(e.key==="Enter"){e.preventDefault();cercaArchivio();} });
+      el("searchSaved").addEventListener("keydown", e => { if(e.key==="Enter"){e.preventDefault();cercaNuove();} });
 
-      setField("DATA_PRENOTAZIONE", today());
-      setField("WHATSAPP_NOTIFICA", "NO");
-      setField("STATO_PRENOTAZIONE", "DA COMPLETARE");
-
-      document.getElementById("searchBox").addEventListener("keydown", e => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          cercaArchivio();
-        }
-      });
-
-      document.getElementById("searchReceipt").addEventListener("keydown", e => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          cercaRicevute();
-        }
-      });
+      const params = new URLSearchParams(location.search);
+      if (params.get("genitore") === "1") {
+        parentMode();
+      }
     }
 
-    function aggiornaSezioni() {
-      const classe = getField("NUOVA_CLASSE");
-      const corrente = getField("NUOVA_SEZIONE");
+    function parentMode() {
+      document.body.classList.add("parent");
+      el("tabs").classList.add("hidden");
+      el("parentBanner").classList.remove("hidden");
+      el("subtitle").textContent = "Modulo prenotazione libri scolastici 2026/27";
+      showOnlyStaffFormForParent();
 
-      const opzioni = classe === "1"
-        ? ["TEMPO CORTO", "TEMPO LUNGO"]
-        : (classe ? "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("") : []);
+      set("COMPILATO_DA", "GENITORE");
+      set("STATO_PRENOTAZIONE", "DA COMPLETARE");
+      set("WHATSAPP_NOTIFICA", "SI");
 
-      fillSelect("NUOVA_SEZIONE", opzioni);
+      const params = new URLSearchParams(location.search);
+      const id = params.get("id_alunno") || "";
+      const cf = params.get("cf") || "";
 
-      if (corrente && opzioni.includes(corrente)) {
-        setField("NUOVA_SEZIONE", corrente);
+      if (id || cf) {
+        api("getArchivioById", { id, cf }).then(r => {
+          if (r) fillForm(r);
+        }).catch(() => {});
       }
+    }
+
+    function showOnlyStaffFormForParent() {
+      el("screenSearch").classList.add("hidden");
+      el("screenLink").classList.add("hidden");
+      el("screenStaff").classList.remove("hidden");
+
+      const firstCard = el("screenStaff").querySelector(".card.no-print");
+      if (firstCard) firstCard.classList.add("hidden");
+
+      el("modeBadge").textContent = "genitore";
+    }
+
+    function updateSezioni() {
+      const classe = get("NUOVA_CLASSE");
+      const sel = el("NUOVA_SEZIONE");
+      const old = sel.value;
+      sel.innerHTML = "<option></option>";
+
+      const options = classe === "1" ? ["TEMPO CORTO","TEMPO LUNGO"] : (classe ? "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("") : []);
+      options.forEach(v => {
+        const o = document.createElement("option");
+        o.value = v; o.textContent = v;
+        sel.appendChild(o);
+      });
+
+      if (options.includes(old)) sel.value = old;
     }
 
     async function cercaArchivio() {
-      const q = getField("searchBox");
+      const q = get("searchBox");
+      if (!q) return alert("Scrivi qualcosa da cercare.");
 
-      if (!q) {
-        alert("Inserisci un testo da cercare.");
-        return;
-      }
-
-      document.getElementById("quickStatus").value = "Ricerca in corso...";
-      setMsg("msgRicerca", "Ricerca nel vecchio archivio Google...", "ok");
+      el("quickStatus").value = "Ricerca in corso...";
+      msg("msgRicerca", "Ricerca nel vecchio archivio Google...");
 
       try {
-        const res = await api("cercaArchivio", { q });
+        const rows = await api("cercaArchivio", { q });
+        if (!Array.isArray(rows)) throw new Error(rows && rows.message ? rows.message : "Risposta non valida");
 
-        console.log("RISPOSTA CERCARCHIVIO:", res);
-        console.log("PRIMA RIGA ARCHIVIO:", Array.isArray(res) && res[0] ? res[0] : null);
-        console.log("COLONNE ARCHIVIO:", Array.isArray(res) && res[0] ? Object.keys(res[0]) : []);
-
-        if (!Array.isArray(res)) {
-          throw new Error(res && res.message ? res.message : "Risposta non valida.");
-        }
-
-        risultatiArchivio = res;
-        mostraRisultatiArchivio(res);
-
+        risultatiArchivio = rows;
+        el("quickStatus").value = "Risultati trovati: " + rows.length;
+        renderArchivio(rows);
       } catch (err) {
-        setMsg("msgRicerca", "Errore ricerca: " + err.message, "err");
-        document.getElementById("quickStatus").value = "Errore ricerca";
+        msg("msgRicerca", "Errore: " + err.message, "err");
+        el("quickStatus").value = "Errore";
       }
     }
 
-    function mostraRisultatiArchivio(rows) {
-      const box = document.getElementById("searchResults");
+    function renderArchivio(rows) {
+      const box = el("searchResults");
       box.classList.remove("hidden");
 
       if (!rows.length) {
-        box.innerHTML = '<div style="padding:12px;">Nessun risultato trovato. Puoi creare una nuova anagrafica.</div>';
-        document.getElementById("quickStatus").value = "Nessun risultato";
+        box.innerHTML = '<div style="padding:12px;">Nessun risultato.</div>';
         return;
       }
 
-      document.getElementById("quickStatus").value = "Risultati trovati: " + rows.length;
+      msg("msgRicerca", "Risultati trovati: " + rows.length + ". Clicca Carica oppure invia il link al genitore.");
 
-      let t = `
-        <table>
-          <thead>
-            <tr>
-              <th>Alunno</th>
-              <th>Genitore</th>
-              <th>Telefono</th>
-              <th>CF alunno</th>
-              <th>Classe vecchia</th>
-              <th>Istituto</th>
-              <th>Azione</th>
-            </tr>
-          </thead>
-          <tbody>
-      `;
+      let html = `<table><thead><tr>
+        <th>Alunno</th><th>Genitore</th><th>Telefono</th><th>CF alunno</th><th>Classe vecchia</th><th>Istituto</th><th>Azioni</th>
+      </tr></thead><tbody>`;
 
-      rows.forEach((r, i) => {
-        const alunno = getAlunno(r);
-        const genitore = getGenitore(r);
-        const telefono = getTelefono(r);
-        const cfAlunno = getCfAlunno(r);
-        const classeVecchia = (getClasseVecchia(r) + " " + getSezioneVecchia(r)).trim();
-        const istituto = getIstituto(r);
-
-        t += `
-          <tr class="result-row" onclick="caricaDaArchivio(${i})">
-            <td>${esc(alunno || "-")}</td>
-            <td>${esc(genitore || "-")}</td>
-            <td>${esc(telefono || "-")}</td>
-            <td>${esc(cfAlunno || "-")}</td>
-            <td>${esc(classeVecchia || "-")}</td>
-            <td>${esc(istituto || "-")}</td>
-            <td>
-              <button type="button" onclick="event.stopPropagation(); caricaDaArchivio(${i})">Carica</button>
-            </td>
-          </tr>
-        `;
+      rows.forEach((r,i) => {
+        html += `<tr>
+          <td>${esc(nomeAlunno(r) || "-")}</td>
+          <td>${esc(nomeGenitore(r) || "-")}</td>
+          <td>${esc(r.CELLULARE_GENITORE || "-")}</td>
+          <td>${esc(r.CODICE_FISCALE_ALUNNO || "-")}</td>
+          <td>${esc(((r.CLASSE_VECCHIA||"") + " " + (r.SEZIONE_VECCHIA||"")).trim() || "-")}</td>
+          <td>${esc(r.ISTITUTO_NOME || "-")}</td>
+          <td>
+            <button onclick="caricaArchivio(${i})" type="button">Carica</button>
+            <button class="green" onclick="linkGenitoreDaArchivio(${i})" type="button">WhatsApp link</button>
+          </td>
+        </tr>`;
       });
 
-      t += "</tbody></table>";
-      box.innerHTML = t;
+      html += "</tbody></table>";
+      box.innerHTML = html;
     }
 
-    function caricaDaArchivio(i) {
+    function caricaArchivio(i) {
       const r = risultatiArchivio[i];
       if (!r) return;
+      currentIdPrenotazione = "";
+      currentRow = r;
+      fillForm(r);
+      updateParentLink(r);
+      el("modeBadge").textContent = "caricato da archivio";
+      window.scrollTo(0, el("formCard").offsetTop - 12);
+    }
 
-      ID_PRENOTAZIONE_CORRENTE = "";
+    function fillForm(r) {
+      FIELDS.forEach(f => {
+        if (r[f] !== undefined) set(f, r[f]);
+      });
+      if (!get("DATA_PRENOTAZIONE")) set("DATA_PRENOTAZIONE", new Date().toISOString().slice(0,10));
+      if (!get("STATO_PRENOTAZIONE")) set("STATO_PRENOTAZIONE","DA COMPLETARE");
+      updateSezioni();
+    }
 
-      setField("ID_ALUNNO", getIdAlunno(r));
-      setField("COGNOME_ALUNNO", getCognomeAlunno(r));
-      setField("NOME_ALUNNO", getNomeAlunno(r));
-      setField("CODICE_FISCALE_ALUNNO", getCfAlunno(r));
+    function nomeAlunno(r) {
+      return ((r.COGNOME_ALUNNO || "") + " " + (r.NOME_ALUNNO || "")).trim();
+    }
 
-      setField("CLASSE_VECCHIA", getClasseVecchia(r));
-      setField("SEZIONE_VECCHIA", getSezioneVecchia(r));
-
-      setField("ISTITUTO_NOME", getIstituto(r));
-      setField("ISTITUTO_CITTA", val(r, [
-        "ISTITUTO_CITTA",
-        "ISTITUTO CITTA",
-        "CITTA_ISTITUTO",
-        "CITTA ISTITUTO",
-        "COMUNE_ISTITUTO",
-        "COMUNE ISTITUTO"
-      ]));
-
-      setField("COMUNE_RESIDENZA", val(r, [
-        "COMUNE_RESIDENZA",
-        "COMUNE RESIDENZA",
-        "COMUNE",
-        "RESIDENZA"
-      ], "comune"));
-
-      setField("COMUNE_FUORI_PROVINCIA", val(r, [
-        "COMUNE_FUORI_PROVINCIA",
-        "COMUNE FUORI PROVINCIA",
-        "FUORI_PROVINCIA",
-        "FUORI PROVINCIA"
-      ]));
-
-      setField("COGNOME_GENITORE", getCognomeGenitore(r));
-      setField("NOME_GENITORE", getNomeGenitore(r));
-      setField("CELLULARE_GENITORE", getTelefono(r));
-      setField("COD_FISC_GENITORE", getCfGenitore(r));
-
-      setField("DATA_PRENOTAZIONE", today());
-      setField("STATO_PRENOTAZIONE", "DA COMPLETARE");
-
-      aggiornaSezioni();
-
-      document.getElementById("modeBadge").textContent = "caricato da Google Fogli";
-      document.getElementById("quickStatus").value = "Selezionato: " + (getAlunno(r) || "alunno");
-      document.getElementById("searchResults").classList.add("hidden");
-      hideMsg("msgRicerca");
+    function nomeGenitore(r) {
+      return ((r.COGNOME_GENITORE || "") + " " + (r.NOME_GENITORE || "")).trim();
     }
 
     function nuovaAnagrafica() {
-      pulisciMaschera();
-
-      [
-        "ID_ALUNNO",
-        "COGNOME_ALUNNO",
-        "NOME_ALUNNO",
-        "CODICE_FISCALE_ALUNNO",
-        "CLASSE_VECCHIA",
-        "SEZIONE_VECCHIA"
-      ].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.removeAttribute("readonly");
-      });
-
-      document.getElementById("modeBadge").textContent = "nuova anagrafica";
-      document.getElementById("quickStatus").value = "Nuova anagrafica: compila i dati";
-      setField("STATO_PRENOTAZIONE", "DA COMPLETARE");
-      setField("DATA_PRENOTAZIONE", today());
+      pulisciForm();
+      el("modeBadge").textContent = "nuova anagrafica";
+      el("quickStatus").value = "Nuova anagrafica";
     }
 
-    function pulisciMaschera() {
-      ID_PRENOTAZIONE_CORRENTE = "";
-
-      CAMPI.forEach(c => setField(c, ""));
-
-      [
-        "ID_ALUNNO",
-        "COGNOME_ALUNNO",
-        "NOME_ALUNNO",
-        "CODICE_FISCALE_ALUNNO",
-        "CLASSE_VECCHIA",
-        "SEZIONE_VECCHIA"
-      ].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.setAttribute("readonly", "readonly");
-      });
-
-      fillSelect("ISTITUTO_CITTA", COMUNI_VT);
-      fillSelect("COMUNE_RESIDENZA", COMUNI_VT);
-      fillSelect("NUOVA_CLASSE", ["1", "2", "3", "4", "5"]);
-      aggiornaSezioni();
-
-      setField("DATA_PRENOTAZIONE", today());
-      setField("WHATSAPP_NOTIFICA", "NO");
-      setField("STATO_PRENOTAZIONE", "DA COMPLETARE");
-
-      document.getElementById("modeBadge").textContent = "da archivio scorso anno";
-      document.getElementById("quickStatus").value = "Nuova anagrafica non presente";
-      hideMsg("msgSalva");
+    function pulisciForm() {
+      currentIdPrenotazione = "";
+      currentRow = null;
+      FIELDS.forEach(f => set(f,""));
+      set("DATA_PRENOTAZIONE", new Date().toISOString().slice(0,10));
+      set("WHATSAPP_NOTIFICA","NO");
+      set("STATO_PRENOTAZIONE","DA COMPLETARE");
+      set("COMPILATO_DA","STAFF");
+      updateSezioni();
+      hide("msgSalva");
+      updateParentLink();
     }
 
-    function raccogliDati() {
+    function raccogli() {
       const d = {};
-
-      CAMPI.forEach(c => {
-        d[c] = getField(c);
-      });
-
-      d.ID_PRENOTAZIONE = ID_PRENOTAZIONE_CORRENTE;
+      FIELDS.forEach(f => d[f] = get(f));
+      d.ID_PRENOTAZIONE = currentIdPrenotazione || "";
+      d.LINK_ORIGINE = location.href;
       return d;
     }
 
-    function validaLocale(d) {
-      const checks = [
-        ["COGNOME_ALUNNO", "Cognome alunno obbligatorio"],
-        ["NOME_ALUNNO", "Nome alunno obbligatorio"],
-        ["CODICE_FISCALE_ALUNNO", "Codice fiscale del figlio/alunno obbligatorio"],
-        ["COD_FISC_GENITORE", "Codice fiscale del genitore obbligatorio"],
-        ["NUOVA_CLASSE", "Nuova classe obbligatoria"],
-        ["NUOVA_SEZIONE", "Nuova sezione obbligatoria"],
-        ["RELIGIONE", "Religione obbligatoria"],
-        ["FODERATI", "Foderati obbligatorio"],
-        ["LIBRO_VACANZE", "Libro vacanze obbligatorio"]
-      ];
-
-      for (const [id, msg] of checks) {
-        if (!d[id]) {
-          alert(msg);
-          const el = document.getElementById(id);
-          if (el) el.focus();
-          return false;
-        }
-      }
-
-      if (!d.COMUNE_RESIDENZA && !d.COMUNE_FUORI_PROVINCIA) {
-        alert("Comune di residenza del figlio obbligatorio. Se fuori provincia, usa Comune fuori provincia.");
-        document.getElementById("COMUNE_RESIDENZA").focus();
-        return false;
-      }
-
-      return true;
-    }
-
-    function creaRiepilogoTesto(d) {
-      return [
-        "Controlla i dati prima di salvare:",
-        "",
-        "Alunno: " + d.COGNOME_ALUNNO + " " + d.NOME_ALUNNO,
-        "CF alunno: " + d.CODICE_FISCALE_ALUNNO,
-        "Genitore: " + d.COGNOME_GENITORE + " " + d.NOME_GENITORE,
-        "Telefono: " + d.CELLULARE_GENITORE,
-        "CF genitore: " + d.COD_FISC_GENITORE,
-        "Classe nuova: " + d.NUOVA_CLASSE + " " + d.NUOVA_SEZIONE,
-        "Religione: " + d.RELIGIONE,
-        "Foderati: " + d.FODERATI,
-        "Libro vacanze: " + d.LIBRO_VACANZE,
-        "Etichette: " + d.ETICHETTE,
-        "",
-        "Vuoi confermare il salvataggio?"
-      ].join("\n");
-    }
-
     async function salvaPrenotazione() {
-      const d = raccogliDati();
+      const d = raccogli();
 
-      if (!validaLocale(d)) return;
+      if (!d.COGNOME_ALUNNO || !d.NOME_ALUNNO || !d.CODICE_FISCALE_ALUNNO) return alert("Compila i dati alunno obbligatori.");
+      if (!d.COGNOME_GENITORE || !d.NOME_GENITORE || !d.CELLULARE_GENITORE || !d.COD_FISC_GENITORE) return alert("Compila i dati genitore obbligatori.");
+      if (!d.NUOVA_CLASSE || !d.NUOVA_SEZIONE || !d.RELIGIONE || !d.FODERATI || !d.LIBRO_VACANZE) return alert("Compila classe, sezione, religione, foderati e libro vacanze.");
 
-      const conferma = confirm(creaRiepilogoTesto(d));
-      if (!conferma) return;
-
-      setMsg("msgSalva", "Salvataggio in corso...", "ok");
-
-      try {
-        const res = await api("salva", {
-          data: encodeURIComponent(JSON.stringify(d))
-        });
-
-        if (!res || !res.ok) {
-          throw new Error(res && res.message ? res.message : "Errore salvataggio");
-        }
-
-        ID_PRENOTAZIONE_CORRENTE = res.id || ID_PRENOTAZIONE_CORRENTE;
-
-        setMsg("msgSalva", "Prenotazione salvata correttamente. ID: " + (res.id || ""), "ok");
-        document.getElementById("quickStatus").value = "Salvata: " + (res.id || "");
-        caricaUltime();
-
-      } catch (err) {
-        setMsg("msgSalva", "Errore salvataggio: " + err.message, "err");
-        alert("Errore salvataggio: " + err.message);
-      }
-    }
-
-    async function mostraFigliGenitore() {
-      const d = raccogliDati();
-      const box = document.getElementById("figliBox");
-
-      box.classList.remove("hidden");
-      box.innerHTML = '<div style="padding:12px;">Ricerca figli collegati...</div>';
+      msg("msgSalva", "Salvataggio in corso...");
 
       try {
-        const res = await api("figli", {
-          data: encodeURIComponent(JSON.stringify(d))
-        });
+        const res = await api("salva", { data: encodeURIComponent(JSON.stringify(d)) });
+        if (!res || !res.ok) throw new Error(res && res.message ? res.message : "Errore salvataggio");
 
-        if (!Array.isArray(res) || !res.length) {
-          box.innerHTML = '<div style="padding:12px;">Nessun figlio collegato trovato.</div>';
-          return;
+        currentIdPrenotazione = res.id;
+        msg("msgSalva", "Prenotazione salvata correttamente. ID: " + res.id);
+        renderRicevuta(Object.assign({}, d, { ID_PRENOTAZIONE: res.id }));
+
+        if (new URLSearchParams(location.search).get("genitore") === "1") {
+          alert("Prenotazione inviata correttamente. Grazie.");
         }
-
-        let t = `
-          <table>
-            <thead>
-              <tr>
-                <th>Alunno</th>
-                <th>Classe vecchia</th>
-                <th>Istituto</th>
-              </tr>
-            </thead>
-            <tbody>
-        `;
-
-        res.forEach(r => {
-          const classeVecchia = (getClasseVecchia(r) + " " + getSezioneVecchia(r)).trim();
-
-          t += `
-            <tr>
-              <td>${esc(getAlunno(r))}</td>
-              <td>${esc(classeVecchia)}</td>
-              <td>${esc(getIstituto(r))}</td>
-            </tr>
-          `;
-        });
-
-        t += "</tbody></table>";
-        box.innerHTML = t;
-
       } catch (err) {
-        box.innerHTML = '<div style="padding:12px;">Errore: ' + esc(err.message) + '</div>';
+        msg("msgSalva", "Errore: " + err.message, "err");
       }
     }
 
-    function aggiungiFiglioStessoGenitore() {
-      const gen = {
-        COGNOME_GENITORE: getField("COGNOME_GENITORE"),
-        NOME_GENITORE: getField("NOME_GENITORE"),
-        CELLULARE_GENITORE: getField("CELLULARE_GENITORE"),
-        COD_FISC_GENITORE: getField("COD_FISC_GENITORE"),
-        COMUNE_RESIDENZA: getField("COMUNE_RESIDENZA"),
-        COMUNE_FUORI_PROVINCIA: getField("COMUNE_FUORI_PROVINCIA")
-      };
+    async function cercaNuove() {
+      const q = get("searchSaved");
+      if (!q) return alert("Scrivi qualcosa da cercare.");
 
-      nuovaAnagrafica();
-
-      Object.keys(gen).forEach(k => setField(k, gen[k]));
-    }
-
-    function numeroWhatsAppPulito(tel) {
-      let n = String(tel || "").replace(/\D/g, "");
-
-      if (!n) return "";
-
-      if (n.startsWith("0")) {
-        n = "39" + n.substring(1);
-      }
-
-      if (!n.startsWith("39")) {
-        n = "39" + n;
-      }
-
-      return n;
-    }
-
-    function apriWhatsApp() {
-      const tel = getField("CELLULARE_GENITORE");
-      const n = numeroWhatsAppPulito(tel);
-
-      if (!n) {
-        alert("Numero WhatsApp mancante.");
-        return;
-      }
-
-      const alunno = (getField("COGNOME_ALUNNO") + " " + getField("NOME_ALUNNO")).trim();
-
-      const msg =
-        "Buongiorno, confermiamo la prenotazione libri scolastici 2026/27 per " + alunno + ".\n" +
-        "Classe " + getField("NUOVA_CLASSE") + ", sezione " + getField("NUOVA_SEZIONE") + ".";
-
-      window.open("https://wa.me/" + n + "?text=" + encodeURIComponent(msg), "_blank");
-    }
-
-    function apriRicevutaDaPrenotazione() {
-      if (!ID_PRENOTAZIONE_CORRENTE) {
-        alert("Prima salva la prenotazione, poi apri la ricevuta.");
-        return;
-      }
-
-      mostraSchermata("ricevuta");
-      caricaRicevutaDaId(ID_PRENOTAZIONE_CORRENTE);
-    }
-
-    async function caricaUltime() {
-      const box = document.getElementById("tabellaSalvati");
-
-      box.innerHTML = '<div style="padding:12px;">Caricamento...</div>';
+      el("savedStatus").value = "Ricerca in corso...";
 
       try {
-        const res = await api("cercaNuove", { q: "" });
-
-        if (!Array.isArray(res) || !res.length) {
-          box.innerHTML = '<div style="padding:12px;">Nessuna prenotazione nuova salvata.</div>';
-          return;
-        }
-
-        let t = `
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Alunno</th>
-                <th>Genitore</th>
-                <th>Telefono</th>
-                <th>Classe</th>
-                <th>Rel.</th>
-                <th>Fod.</th>
-                <th>Vacanze</th>
-                <th>Etichette</th>
-                <th>Stato</th>
-              </tr>
-            </thead>
-            <tbody>
-        `;
-
-        res.forEach(r => {
-          t += `
-            <tr>
-              <td>${esc(getIdPrenotazione(r))}</td>
-              <td>${esc(getAlunno(r))}</td>
-              <td>${esc(getGenitore(r))}</td>
-              <td>${esc(getTelefono(r))}</td>
-              <td>${esc(getClasse(r))}</td>
-              <td>${esc(val(r, ["RELIGIONE"]))}</td>
-              <td>${esc(val(r, ["FODERATI"]))}</td>
-              <td>${esc(val(r, ["LIBRO_VACANZE", "LIBRO VACANZE"]))}</td>
-              <td>${esc(val(r, ["ETICHETTE"]))}</td>
-              <td>${esc(val(r, ["STATO_PRENOTAZIONE", "STATO"]))}</td>
-            </tr>
-          `;
-        });
-
-        t += "</tbody></table>";
-        box.innerHTML = t;
-
+        const rows = await api("cercaNuove", { q });
+        if (!Array.isArray(rows)) throw new Error(rows && rows.message ? rows.message : "Risposta non valida");
+        risultatiNuove = rows;
+        el("savedStatus").value = "Risultati: " + rows.length;
+        renderNuove(rows);
       } catch (err) {
-        box.innerHTML = '<div style="padding:12px;">Errore: ' + esc(err.message) + '</div>';
+        msg("msgSaved", "Errore: " + err.message, "err");
       }
     }
 
-    async function cercaRicevute() {
-      const q = getField("searchReceipt");
-
-      if (!q) {
-        alert("Scrivi un testo da cercare.");
-        return;
-      }
-
-      document.getElementById("statusReceipt").value = "Ricerca in corso...";
-      hideMsg("msgRicevuta");
-
-      try {
-        const res = await api("cercaNuove", { q });
-
-        console.log("RISULTATI RICERCA:", res);
-        console.log("PRIMA RIGA:", Array.isArray(res) ? res[0] : null);
-        console.log("COLONNE:", Array.isArray(res) && res[0] ? Object.keys(res[0]) : []);
-
-        if (!Array.isArray(res)) {
-          throw new Error(res && res.message ? res.message : "Risposta non valida");
-        }
-
-        risultatiRicevuta = res;
-        mostraRisultatiRicevuta(res);
-
-      } catch (err) {
-        setMsg("msgRicevuta", "Errore ricerca: " + err.message, "err");
-        document.getElementById("statusReceipt").value = "Errore ricerca";
-      }
-    }
-
-    function mostraRisultatiRicevuta(rows) {
-      const box = document.getElementById("receiptResults");
+    function renderNuove(rows) {
+      const box = el("savedResults");
       box.classList.remove("hidden");
 
       if (!rows.length) {
-        box.innerHTML = '<div style="padding:12px;">Nessuna prenotazione salvata trovata.</div>';
-        document.getElementById("statusReceipt").value = "Nessun risultato";
+        box.innerHTML = '<div style="padding:12px;">Nessun risultato.</div>';
         return;
       }
 
-      document.getElementById("statusReceipt").value = "Risultati trovati: " + rows.length;
+      let html = `<table><thead><tr>
+        <th>ID</th><th>Data</th><th>Alunno</th><th>Genitore</th><th>Telefono</th><th>Classe</th><th>Stato</th><th>Azioni</th>
+      </tr></thead><tbody>`;
 
-      let t = `
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Data prenotazione</th>
-              <th>Alunno</th>
-              <th>Genitore</th>
-              <th>Telefono</th>
-              <th>CF alunno</th>
-              <th>CF genitore</th>
-              <th>Classe</th>
-              <th>Azioni</th>
-            </tr>
-          </thead>
-          <tbody>
-      `;
-
-      rows.forEach((r, i) => {
-        t += `
-          <tr class="result-row" onclick="selezionaRicevuta(${i})">
-            <td>${esc(getIdPrenotazione(r) || "-")}</td>
-            <td>${esc(getDataPrenotazione(r) || "-")}</td>
-            <td>${esc(getAlunno(r) || "-")}</td>
-            <td>${esc(getGenitore(r) || "-")}</td>
-            <td>${esc(getTelefono(r) || "-")}</td>
-            <td>${esc(getCfAlunno(r) || "-")}</td>
-            <td>${esc(getCfGenitore(r) || "-")}</td>
-            <td>${esc(getClasse(r) || "-")}</td>
-            <td>
-              <button type="button" onclick="event.stopPropagation(); caricaPrenotazioneDaRicerca(${i})">Modifica</button>
-              <button type="button" class="green" onclick="event.stopPropagation(); inviaWhatsAppDaRicerca(${i})">WhatsApp</button>
-              <button type="button" class="orange" onclick="event.stopPropagation(); selezionaRicevuta(${i}); window.print()">Ricevuta</button>
-            </td>
-          </tr>
-        `;
+      rows.forEach((r,i) => {
+        html += `<tr>
+          <td>${esc(r.ID_PRENOTAZIONE || "-")}</td>
+          <td>${esc(r.DATA_PRENOTAZIONE || r.DATA_ORA_SALVATAGGIO || "-")}</td>
+          <td>${esc(nomeAlunno(r) || "-")}</td>
+          <td>${esc(nomeGenitore(r) || "-")}</td>
+          <td>${esc(r.CELLULARE_GENITORE || "-")}</td>
+          <td>${esc(((r.NUOVA_CLASSE||"") + " " + (r.NUOVA_SEZIONE||"")).trim() || "-")}</td>
+          <td>${esc(r.STATO_PRENOTAZIONE || "-")}</td>
+          <td>
+            <button onclick="selezionaNuova(${i})" type="button">Ricevuta</button>
+            <button class="green" onclick="whatsAppConfermaDaRiga(${i})" type="button">WhatsApp</button>
+          </td>
+        </tr>`;
       });
 
-      t += "</tbody></table>";
-      box.innerHTML = t;
+      html += "</tbody></table>";
+      box.innerHTML = html;
     }
 
-    function selezionaRicevuta(i) {
-      const r = risultatiRicevuta[i];
-      if (r) renderRicevuta(r);
-    }
-
-    async function caricaRicevutaDaId(id) {
-      try {
-        const r = await api("ricevuta", { id });
-
-        if (!r) {
-          throw new Error("Ricevuta non trovata.");
-        }
-
-        renderRicevuta(r);
-
-      } catch (err) {
-        setMsg("msgRicevuta", "Errore: " + err.message, "err");
-      }
+    function selezionaNuova(i) {
+      const r = risultatiNuove[i];
+      if (!r) return;
+      renderRicevuta(r);
     }
 
     function renderRicevuta(r) {
-      document.getElementById("statusReceipt").value = "Ricevuta selezionata: " + (getIdPrenotazione(r) || "");
-
-      document.getElementById("ricevutaBody").innerHTML = `
+      el("ricevutaBox").innerHTML = `
         <h2>Ricevuta prenotazione libri scolastici 2026/27</h2>
-
-        <p><strong>ID prenotazione:</strong> ${esc(getIdPrenotazione(r) || "-")}</p>
-        <p><strong>Data prenotazione:</strong> ${esc(getDataPrenotazione(r) || "-")}</p>
-
-        <hr class="sep">
-
+        <p><strong>ID prenotazione:</strong> ${esc(r.ID_PRENOTAZIONE || "-")}</p>
         <div class="riepilogo">
-          <div>
-            <b>Alunno</b>
-            ${esc(getAlunno(r) || "-")}
-          </div>
-          <div>
-            <b>Codice fiscale alunno</b>
-            ${esc(getCfAlunno(r) || "-")}
-          </div>
-          <div>
-            <b>Genitore</b>
-            ${esc(getGenitore(r) || "-")}
-          </div>
-          <div>
-            <b>Codice fiscale genitore</b>
-            ${esc(getCfGenitore(r) || "-")}
-          </div>
-          <div>
-            <b>Telefono</b>
-            ${esc(getTelefono(r) || "-")}
-          </div>
-          <div>
-            <b>Classe nuova</b>
-            ${esc(getClasse(r) || "-")}
-          </div>
-          <div>
-            <b>Religione</b>
-            ${esc(val(r, ["RELIGIONE"]) || "-")}
-          </div>
-          <div>
-            <b>Foderati</b>
-            ${esc(val(r, ["FODERATI"]) || "-")}
-          </div>
-          <div>
-            <b>Libro vacanze</b>
-            ${esc(val(r, ["LIBRO_VACANZE", "LIBRO VACANZE"]) || "-")}
-          </div>
-          <div>
-            <b>Etichette</b>
-            ${esc(val(r, ["ETICHETTE"]) || "-")}
-          </div>
-          <div>
-            <b>Stato</b>
-            ${esc(val(r, ["STATO_PRENOTAZIONE", "STATO"]) || "-")}
-          </div>
-          <div>
-            <b>Note</b>
-            ${esc(val(r, ["NOTE_NUOVO_ANNO", "NOTE", "NOTE NUOVO ANNO"]) || "-")}
-          </div>
+          <div><b>Alunno</b>${esc(nomeAlunno(r) || "-")}</div>
+          <div><b>CF alunno</b>${esc(r.CODICE_FISCALE_ALUNNO || "-")}</div>
+          <div><b>Genitore</b>${esc(nomeGenitore(r) || "-")}</div>
+          <div><b>Telefono</b>${esc(r.CELLULARE_GENITORE || "-")}</div>
+          <div><b>Classe nuova</b>${esc(((r.NUOVA_CLASSE||"") + " " + (r.NUOVA_SEZIONE||"")).trim() || "-")}</div>
+          <div><b>Religione</b>${esc(r.RELIGIONE || "-")}</div>
+          <div><b>Foderati</b>${esc(r.FODERATI || "-")}</div>
+          <div><b>Libro vacanze</b>${esc(r.LIBRO_VACANZE || "-")}</div>
+          <div><b>Etichette</b>${esc(r.ETICHETTE || "-")}</div>
+          <div><b>Stato</b>${esc(r.STATO_PRENOTAZIONE || "-")}</div>
         </div>
-
-        <hr class="sep">
-
-        <p>
-          Si attesta l'avvenuta registrazione della prenotazione dei libri scolastici
-          per l'anno 2026/27.
-        </p>
+        <p>Si attesta l'avvenuta registrazione della prenotazione.</p>
       `;
+      showScreen("search");
     }
 
-    function caricaPrenotazioneDaRicerca(i) {
-      const r = risultatiRicevuta[i];
-      if (!r) return;
-
-      mostraSchermata("prenotazione");
-
-      ID_PRENOTAZIONE_CORRENTE = getIdPrenotazione(r);
-
-      setField("ID_ALUNNO", getIdAlunno(r));
-      setField("COGNOME_ALUNNO", getCognomeAlunno(r));
-      setField("NOME_ALUNNO", getNomeAlunno(r));
-      setField("CODICE_FISCALE_ALUNNO", getCfAlunno(r));
-      setField("COGNOME_GENITORE", getCognomeGenitore(r));
-      setField("NOME_GENITORE", getNomeGenitore(r));
-      setField("CELLULARE_GENITORE", getTelefono(r));
-      setField("COD_FISC_GENITORE", getCfGenitore(r));
-
-      CAMPI.forEach(c => {
-        const attuale = getField(c);
-        if (!attuale) {
-          setField(c, val(r, [c, c.replace(/_/g, " ")]));
-        }
-      });
-
-      const classe = val(r, ["NUOVA_CLASSE", "CLASSE_NUOVA", "CLASSE NUOVA", "CLASSE"]);
-      const sezione = val(r, ["NUOVA_SEZIONE", "SEZIONE_NUOVA", "SEZIONE NUOVA", "SEZIONE"]);
-
-      if (classe) setField("NUOVA_CLASSE", classe);
-      aggiornaSezioni();
-      if (sezione) setField("NUOVA_SEZIONE", sezione);
-
-      document.getElementById("modeBadge").textContent = "modifica prenotazione salvata";
-      document.getElementById("quickStatus").value = "Modifica ID: " + ID_PRENOTAZIONE_CORRENTE;
-      setMsg("msgSalva", "Prenotazione caricata. Puoi modificarla e premere Salva prenotazione.", "ok");
+    function stampaRicevutaCorrente() {
+      const d = raccogli();
+      renderRicevuta(d);
+      setTimeout(() => window.print(), 250);
     }
 
-    function inviaWhatsAppDaRicerca(i) {
-      const r = risultatiRicevuta[i];
+    function updateParentLink(row) {
+      const base = location.origin + location.pathname;
+      const r = row || currentRow || null;
+      const url = new URL(base);
+      url.searchParams.set("genitore","1");
+
+      if (r && r.ID_ALUNNO) url.searchParams.set("id_alunno", r.ID_ALUNNO);
+      if (r && r.CODICE_FISCALE_ALUNNO) url.searchParams.set("cf", r.CODICE_FISCALE_ALUNNO);
+
+      set("parentLink", url.toString());
+      return url.toString();
+    }
+
+    function copyParentLink() {
+      const link = updateParentLink();
+      navigator.clipboard.writeText(link).then(() => alert("Link copiato."));
+    }
+
+    function linkGenitoreDaArchivio(i) {
+      const r = risultatiArchivio[i];
       if (!r) return;
 
-      const n = numeroWhatsAppPulito(getTelefono(r));
+      currentRow = r;
+      updateParentLink(r);
+      set("waPhone", r.CELLULARE_GENITORE || "");
+      showScreen("link");
+    }
 
-      if (!n) {
-        alert("Numero WhatsApp mancante.");
-        return;
-      }
+    function numeroWA(v) {
+      let n = String(v || "").replace(/\D/g,"");
+      if (!n) return "";
+      if (n.startsWith("0")) n = n.substring(1);
+      if (!n.startsWith("39")) n = "39" + n;
+      return n;
+    }
 
-      const msg =
-        "Buongiorno, confermiamo la prenotazione libri scolastici 2026/27 per " + getAlunno(r) + ".\n" +
-        "Classe " + getClasse(r) + ".";
+    function sendParentLinkWhatsApp() {
+      const n = numeroWA(get("waPhone"));
+      if (!n) return alert("Inserisci il telefono del genitore.");
 
-      window.open("https://wa.me/" + n + "?text=" + encodeURIComponent(msg), "_blank");
+      const link = updateParentLink();
+      const text = "Buongiorno, per completare la prenotazione dei libri scolastici 2026/27 compili questo modulo: " + link;
+      window.open("https://wa.me/" + n + "?text=" + encodeURIComponent(text), "_blank");
+    }
+
+    function apriWhatsAppConferma() {
+      const d = raccogli();
+      const n = numeroWA(d.CELLULARE_GENITORE);
+      if (!n) return alert("Telefono mancante.");
+
+      const text = "Buongiorno, confermiamo la prenotazione libri scolastici 2026/27 per " +
+        d.COGNOME_ALUNNO + " " + d.NOME_ALUNNO + ", classe " + d.NUOVA_CLASSE + " " + d.NUOVA_SEZIONE + ".";
+
+      window.open("https://wa.me/" + n + "?text=" + encodeURIComponent(text), "_blank");
+    }
+
+    function whatsAppConfermaDaRiga(i) {
+      const r = risultatiNuove[i];
+      const n = numeroWA(r.CELLULARE_GENITORE);
+      if (!n) return alert("Telefono mancante.");
+
+      const text = "Buongiorno, confermiamo la prenotazione libri scolastici 2026/27 per " +
+        nomeAlunno(r) + ", classe " + (r.NUOVA_CLASSE || "") + " " + (r.NUOVA_SEZIONE || "") + ".";
+
+      window.open("https://wa.me/" + n + "?text=" + encodeURIComponent(text), "_blank");
     }
 
     document.addEventListener("DOMContentLoaded", init);
